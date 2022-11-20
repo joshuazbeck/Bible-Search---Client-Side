@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:c="http://java.sun.com/jstl/core">
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+		<h2><h:outputText value="Searched Word/Phrase: #{formController.service.results.searchedWord}"></h:outputText></h2>
+		<h4><h:outputText value="Total Results: #{formController.service.results.totalResults}"></h:outputText></h4>
+		<h4><h:outputText value="Number of Verses Containing Phrase: #{formController.service.results.verseResults}"></h:outputText></h4>
+		<h3 style="text-align:center">Old Testament Results</h3>
+		<h:dataTable value = "#{formController.service.results.oldTestementResults}" var = "bibleResult"
+			styleClass = "bibleTable"
+			headerClass = "bibleTableHeader"
+			rowClasses = "bibleTableOddRow, bibleTableEvenRow">
+			<h:column>
+				<f:facet name = "header">Book Name</f:facet>
+				#{bibleResult.bookName}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Chapter</f:facet>
+				#{bibleResult.chapterNum}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Verse</f:facet>
+				#{bibleResult.verseNum}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Content</f:facet>
+				#{bibleResult.verseContent}
+			</h:column>
+			</h:dataTable>
+		<h3 style="text-align:center">New Testament Results</h3>
+			<h:dataTable value = "#{formController.service.results.newTestementResults}" var = "bibleResult"
+			styleClass = "bibleTable"
+			headerClass = "bibleTableHeader"
+			rowClasses = "bibleTableOddRow, bibleTableEvenRow">
+			<h:column>
+				<f:facet name = "header">Book Name</f:facet>
+				#{bibleResult.bookName}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Chapter</f:facet>
+				#{bibleResult.chapterNum}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Verse</f:facet>
+				#{bibleResult.verseNum}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Content</f:facet>
+				#{bibleResult.verseContent}
+			</h:column>
+			</h:dataTable>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
